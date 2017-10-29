@@ -18,7 +18,7 @@ describe FaqModule::CreateService do
     end
 
     it 'With valid params, receive success message' do
-      @create_service = FaqModule::CreateService.new({ 'question-original' => @question, 'answer-original' => @answer, 'hastags-original' => @hashtags })
+      @create_service = FaqModule::CreateService.new({ 'question-original' => @question, 'answer-original' => @answer, 'hashtags-original' => @hashtags })
 
       response = @create_service.call()
       expect(response).to eq('Criado com sucesso')

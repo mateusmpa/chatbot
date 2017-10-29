@@ -17,7 +17,7 @@ describe FaqModule::ListService do
       @list_service = FaqModule::ListService.new({}, 'list')
 
       faq1 = create(:faq, company: @company)
-      faq2 = create(:faq, company, @company)
+      faq2 = create(:faq, company: @company)
 
       response = @list_service.call()
 
@@ -58,7 +58,7 @@ describe FaqModule::ListService do
       hashtag = create(:hashtag, company: @company)
       create(:faq_hashtag, faq: faq, hashtag: hashtag)
 
-      @list_service = FaModule::ListService.new({ 'query' => hashtag.name }, 'search_by_hashtag')
+      @list_service = FaqModule::ListService.new({ 'query' => hashtag.name }, 'search_by_hashtag')
 
       response = @list_service.call()
 

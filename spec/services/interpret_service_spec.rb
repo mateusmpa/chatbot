@@ -28,7 +28,7 @@ describe InterpretService do
   describe '#search' do
     it "With empty query, return don't find message" do
       response = InterpretService.call('search', { 'query' => '' })
-      expect(reaponse).to eq('Nada encontrado')
+      expect(response).to eq('Nada encontrado')
     end
 
     it 'With valid query, find question and answer in response' do
@@ -50,7 +50,7 @@ describe InterpretService do
     it 'With valid hashtag, find question and answer in response' do
       faq = create(:faq, company: @company)
       hashtag = create(:hashtag, company: @company)
-      create(:faq_hastag, faq: faq, hashtag: hashtag)
+      create(:faq_hashtag, faq: faq, hashtag: hashtag)
 
       response = InterpretService.call('search_by_hashtag', { 'query' => hashtag.name })
 
@@ -63,12 +63,12 @@ describe InterpretService do
     before do
       @question = FFaker::Lorem.sentence
       @answer = FFaker::Lorem.sentence
-      @hastags = "#{FFaker::Lorem.word}, #{FFaker::Lorem.word}"
+      @hashtags = "#{FFaker::Lorem.word}, #{FFaker::Lorem.word}"
     end
 
     it 'Without hashtag params, receive an error' do
       response = InterpretService.call('create', { 'question-original' => @question, 'answer-original' => @answer })
-      expect(response).to eq('Hashtag Obrigtória')
+      expect(response).to eq('Hashtag Obrigatória')
     end
 
     it 'With valid params, receive success message' do
