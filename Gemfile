@@ -5,7 +5,10 @@ gem 'sinatra-activerecord'
 gem 'pg'
 gem 'rake'
 gem 'pg_search'
-gem 'pry'
+
+group :development, :test do
+  gem 'pry'
+end
 
 group :development do
   gem 'tux'
